@@ -1,0 +1,37 @@
+      *TO find a record in ksds file using random acces.
+       ID DIVISION.
+       PROGRAM-ID. KSREW.
+       ENVIRONMENT DIVISION.
+       INPUT-OUTPUT SECTION.
+       FILE-CONTROL.
+           SELECT INFILE ASSIGN TO DDX1
+           ORGANIZATION IS INDEXED
+           ACCESS MODE IS RANDOM
+           RECORD KEY IS  INEMPNO
+           FILE STATUS IS FSTAT1.
+       DATA DIVISION.
+       FILE SECTION.
+       FD INFILE.
+       01 INEMP-REC.
+          05 INEMPNO PIC X(4).
+          05 INEMPNM PIC A(6).
+          05 INEMPGE PIC A(1).
+          05 INEMPSA PIC 9(4).
+          05 INEMPPA PIC 9(5).
+       WORKING-STORAGE SECTION.
+       77 FSTAT1 PIC 9(2) VALUE 0.
+       77 EOF    PIC A(1) VALUE 'N'.
+       PROCEDURE DIVISION.
+           PERFORM OPEN-PARA.
+           PERFORM PROCESS-PARA.
+           PERFORM CLOSE-PARA.
+           STOP RUN.
+       OPEN-PARA.
+           OPEN I-O INFILE.
+           MOVE 'A008' TO INEMPNO.
+           READ INFILE KEY IS INEMPNO
+             INVALID KEY DISPLAY 'RECORD NOT FOUND'.
+       PROCESS-PARA.
+           DELETE INFILE.
+       CLOSE-PARA.
+           CLOSE INFILE.
