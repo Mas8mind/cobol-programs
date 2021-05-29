@@ -1,4 +1,5 @@
-      *SUBPROGRAM FOR MAIN PROGRAM
+     
+     *MAIN PROGRAM FOR SUB PROGRAM
        ID DIVISION.
        PROGRAM-ID. MAINPGM.
        ENVIRONMENT DIVISION.
@@ -14,3 +15,16 @@
            CALL VAR1 USING A , B , CONTENT C.
            DISPLAY A , B , C.
            STOP RUN.
+ *SUBPROGRAM FOR MAIN PROGRAM
+       ID DIVISION.
+       PROGRAM-ID. SUBPGM.
+       ENVIRONMENT DIVISION.
+       DATA DIVISION.
+       LINKAGE SECTION.
+       77 A PIC 9(2).
+       77 B PIC 9(2).
+       77 C PIC 9(2).
+       PROCEDURE DIVISION USING A , B , C.
+           COMPUTE C = A + B.
+           DISPLAY A , B , C.
+           GOBACK.
