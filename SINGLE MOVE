@@ -1,1 +1,12 @@
-# cobol-programs
+  *TO MOVE SINGLE DATA NAME                                       
+       ID DIVISION.                                                    
+       PROGRAM-ID.  MOV.                                              
+       ENVIRONMENT DIVISION.                                         
+       DATA DIVISION.                                                 
+       WORKING-STORAGE SECTION.                                      
+       77 VAR1 PIC X(5) VALUE 'MA123'.                              
+       77 VAR2 PIC X(3) VALUE SPACES.                                  
+       PROCEDURE DIVISION.                                              
+            MOVE VAR1 TO VAR2.                                         
+            DISPLAY VAR2.                                              
+            STOP RUN. 
