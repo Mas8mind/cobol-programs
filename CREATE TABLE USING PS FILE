@@ -1,0 +1,57 @@
+*TO CREATE A TABLE FROM PS FILE
+       ID DIVISION.
+       PROGRAM-ID. PSTOTAB.
+       ENVIRONMENT DIVISION.
+       INPUT-OUTPUT SECTION.
+       FILE-CONTROL.
+           SELECT INFILE ASSIGN TO DDX1
+           ORGANIZATION IS SEQUENTIAL
+           ACCESS IS SEQUENTIAL
+           FILE STATUS IS FSTAT1.
+       DATA DIVISION.
+       FILE SECTION.
+       FD INFILE.
+       01 IN-REC.
+          05 EMPNO PIC X(4).
+          05 EMPNM PIC A(7).
+          05 EMPSA PIC 9(4).
+          05 EMPPA PIC X(6).
+          05 FILLER PIC X(5).
+       WORKING-STORAGE SECTION.
+       01 EMP-TAB.
+          05 EMP-DET OCCURS 16 TIMES INDEXED BY A1.
+             10 TEMPNO PIC X(4).
+             10 TEMPNM PIC A(7).
+             10 TEMPSA PIC 9(4).
+             10 TEMPPA PIC X(6).
+       77 FSTAT1 PIC 9(2) VALUE 0.
+       77 EOF    PIC A(1) VALUE 'N'.
+       77 VAR1   PIC X(4) VALUE SPACES.
+       PROCEDURE DIVISION.
+           PERFORM OPEN-PARA.
+           PERFORM PROCESS-PARA UNTIL EOF = 'Y'.
+           PERFORM SEARCH-PARA.
+           PERFORM CLOSE-PARA.
+           STOP RUN.
+       OPEN-PARA.
+           OPEN INPUT INFILE.
+           READ INFILE AT END MOVE 'Y' TO EOF.
+       PROCESS-PARA.
+           MOVE EMPNO TO TEMPNO ( A1 ).
+           MOVE EMPNM TO TEMPNM ( A1 ).
+           MOVE EMPSA TO TEMPSA ( A1 ).
+           MOVE EMPPA TO TEMPPA ( A1 ).
+           SET A1 UP BY 1.
+           READ INFILE AT END MOVE 'Y' TO EOF.
+       SEARCH-PARA.
+           ACCEPT VAR1.
+           SET A1 TO 1.
+           SEARCH EMP-DET
+             AT END DISPLAY 'RECORD NOT FOUND'
+             WHEN TEMPNO ( A1 ) = VAR1
+             DISPLAY TEMPNO ( A1 )
+             DISPLAY TEMPNM ( A1 )
+             DISPLAY TEMPSA ( A1 )
+             DISPLAY TEMPPA ( A1 ).
+       CLOSE-PARA.
+           CLOSE INFILE.
