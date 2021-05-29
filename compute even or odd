@@ -1,0 +1,19 @@
+  *TO FIND EVEN AND ODD NUMBERS                                     00010000
+       ID  DIVISION.                                                    00020000
+       PROGRAM-ID.  EVEODD.                                             00030000
+       ENVIRONMENT  DIVISION.                                           00040000
+       DATA  DIVISION.                                                  00050000
+       WORKING-STORAGE SECTION.                                         00060000
+       77  VAR1  PIC  9(2)  VALUE 0.                                    00070001
+       77  VAR2  PIC  9(2)  VALUE 02.                                   00080001
+       77  VAR3  PIC  9(2)  VALUE 0.                                    00080101
+       77  VAR4  PIC  9(2)  VALUE 0.                                    00081001
+       PROCEDURE  DIVISION.                                             00090000
+           ACCEPT  VAR1.                                                00091004
+           DIVIDE VAR1 BY VAR2 GIVING VAR3 REMAINDER VAR4.              00100003
+           IF VAR4 = 0                                                  00110002
+              DISPLAY  VAR1 ' IS EVEN'                                  00120000
+           ELSE                                                         00130000
+              DISPLAY  VAR1 ' IS ODD'                                   00140000
+           END-IF.                                                      00150000
+           STOP RUN.                                   
