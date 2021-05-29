@@ -1,0 +1,18 @@
+  *TO REDEFINE GROUP DATANAME.
+       ID DIVISION.                                                  
+       PROGRAM-ID. REDEF1.                                             
+       ENVIRONMENT DIVISION.                                            
+       DATA DIVISION.                                                 
+       WORKING-STORAGE SECTION.                                         
+       01 X1.                                                          
+          05 X2 PIC 9(3) VALUE 123.                                     
+          05 X3 PIC A(6) VALUE 'MAYANK'.                              
+       01 Y1 REDEFINES X1.                                             
+          05 Y2 PIC 9(3).                                              
+          05 Y3 PIC A(6).                                            
+       PROCEDURE DIVISION.                                            
+           DISPLAY  Y1.                                               
+           MOVE 'SINGH' TO Y3.                                          
+           MOVE 45 TO Y2.                                             
+           DISPLAY Y3,Y2.                                             
+           STOP RUN.  
