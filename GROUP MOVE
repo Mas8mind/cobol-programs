@@ -1,0 +1,22 @@
+ *TO DO GROUP MOVE.                                    
+       ID DIVISION.                                                     
+       PROGRAM-ID.  MULMOV.                                           
+       ENVIRONMENT DIVISION.                                           
+       DATA DIVISION.                                                  
+       WORKING-STORAGE SECTION.                                        
+       01 X1.                                                          
+          05 X2 PIC X(5) VALUE 'ABHIN'.                                 
+          05 X3 PIC 9(3) VALUE 123.                                     
+          05 X4 PIC X(5) VALUE 'MA123'.                                 
+          05 X5 PIC A(5) VALUE 'HELLO'.                                 
+       01 Y1.                                                          
+          05 Y2 PIC X(5) VALUE 'MAYAN'.                                 
+          05 Y3 PIC 9(3) VALUE 120.                                     
+          05 Y4 PIC X(5) VALUE 'MAY12'.                                
+          05 Y5 PIC A(3) VALUE 'MAY'.                                  
+       66 NEW-GRP RENAMES Y3 THRU Y4.                                   
+       PROCEDURE DIVISION.                                              
+            MOVE  X1 TO Y1.                                             
+            DISPLAY Y1.                                                
+            DISPLAY NEW-GRP.                                            
+            STOP RUN.   
