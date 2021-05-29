@@ -12,3 +12,15 @@
            PERFORM ACC-PARA.
            PERFORM DISP-PARA.
            STOP RUN.
+       ACC-PARA.
+           ACCEPT STD-ROLL.
+           ACCEPT STD-NAME.
+           PERFORM ACC-PARA1 VARYING A1 FROM 1 BY 1 UNTIL A1 > 3.
+       ACC-PARA1.
+           ACCEPT STD-MK ( A1 ).
+       DISP-PARA.
+           DISPLAY STD-ROLL.
+           DISPLAY STD-NAME.
+           PERFORM DISP-PARA1 VARYING A1 FROM 1 BY 1 UNTIL A1 > 3.
+       DISP-PARA1.
+           DISPLAY STD-MK ( A1 ).
