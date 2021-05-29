@@ -1,0 +1,10 @@
+ *TO USE COPYLIB                                                 
+       ID DIVISION.                                                  
+       PROGRAM-ID. COP.                                                
+       ENVIRONMENT DIVISION.                                          
+       DATA DIVISION.                                                 
+       WORKING-STORAGE SECTION.                                        
+       COPY MEM1 REPLACING ==:IN:== BY ==MAY==.                        
+       PROCEDURE DIVISION.                                            
+           COPY MEM2 REPLACING ==:IN:== BY ==MAY==.                   
+           STOP RUN.  
