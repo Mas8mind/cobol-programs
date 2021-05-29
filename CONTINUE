@@ -1,0 +1,17 @@
+*USE OF CONTINUE .                              
+       ID DIVISION.                                                     
+       PROGRAM-ID.  REFMOD.                                            
+       ENVIRONMENT DIVISION.                                           
+       DATA DIVISION.                                                   
+       WORKING-STORAGE SECTION.                                         
+       77 VAR1 PIC 9 VALUE 4.                                          
+       PROCEDURE DIVISION.                                             
+           IF VAR1 = 4                                                 
+              CONTINUE                                                 
+           ELSE                                                         
+              DISPLAY 'HI'                                             
+              DISPLAY 'HELLO'.                                         
+              DISPLAY  'MAYANK'.                                      
+           DISPLAY 'HOW ARE YOU'.                                      
+           DISPLAY  'SINGH'.                                           
+           STOP RUN.    
