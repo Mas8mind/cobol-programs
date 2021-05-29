@@ -1,0 +1,9 @@
+     *PROGRAM TO PRINT HELLO
+       ID  DIVISION.
+       PROGRAM-ID.  HELLO.
+       ENVIRONMENT  DIVISION.
+       DATA  DIVISION.
+       PROCEDURE  DIVISION.
+           DISPLAY "HELLO WORLD".
+           DISPLAY "MAYANK".
+           STOP  RUN.
