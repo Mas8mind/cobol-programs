@@ -1,0 +1,26 @@
+*TO DO BINARY SEARCH IN TABLE.
+       ID DIVISION.
+       PROGRAM-ID. BINAR.
+       ENVIRONMENT DIVISION.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01 STD-REC.
+          05 STD-DET  OCCURS 5 TIMES ASCENDING KEY STD-RO INDEXED BY A1.
+             10 STD-RO PIC 9(4).
+             10 STD-NAME PIC A(20).
+       77 VAR1 PIC 9(4) VALUE 0.
+       PROCEDURE DIVISION.
+           PERFORM ACC-PARA VARYING A1 FROM 1 BY 1 UNTIL A1 > 5.
+           PERFORM SEARCH-PARA.
+           STOP RUN.
+       ACC-PARA.
+           ACCEPT STD-RO ( A1 ).
+           ACCEPT STD-NAME ( A1 ).
+       SEARCH-PARA.
+           ACCEPT VAR1.
+           SET A1 TO 1.
+           SEARCH STD-DET
+              AT END DISPLAY 'RECORD NOT FOUND'
+              WHEN STD-RO ( A1 ) = VAR1
+              DISPLAY STD-RO ( A1 )
+              DISPLAY STD-NAME ( A1 ).
