@@ -1,0 +1,13 @@
+  *TO REDEFINE SINGLE DATANAME                             
+       ID DIVISION.                                                     
+       PROGRAM-ID. REDEF1.                                        
+       ENVIRONMENT DIVISION.                                           
+       DATA DIVISION.                                                 
+       WORKING-STORAGE SECTION.                                         
+       77 VAR1 PIC 9(3) VALUE 123.                              
+       77 VAR2 REDEFINES VAR1 PIC A(2).                                
+       PROCEDURE DIVISION.                                            
+           DISPLAY  VAR2.                                               
+           ADD 10 TO VAR2.                                              
+           DISPLAY  VAR2.                                           
+           STOP RUN.
