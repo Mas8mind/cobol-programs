@@ -1,0 +1,37 @@
+ *TO CHECK GREATEST AND SMALLEST
+       ID  DIVISION.
+       PROGRAM-ID. EAVLBTH.
+       ENVIRONMENT  DIVISION.
+       DATA  DIVISION.
+       WORKING-STORAGE SECTION.
+       77 VAR1  PIC  9(2)  VALUE  0.
+       77 VAR2  PIC  9(2)  VALUE  0.
+       77 VAR3  PIC  9(2)  VALUE  0.
+       77 VAR4  PIC  A(7)  VALUE  SPACES.
+       PROCEDURE  DIVISION.
+           ACCEPT  VAR1.
+           ACCEPT  VAR2.
+           ACCEPT  VAR3.
+           ACCEPT  VAR4.
+           IF VAR4 = 'LARGE'
+              IF  VAR1 > VAR2 AND VAR1 > VAR3
+                  DISPLAY  VAR1 " IS GREATER"
+              ELSE IF  VAR2 > VAR1 AND VAR2 > VAR3
+                  DISPLAY  VAR2 " IS GREATER"
+              ELSE IF  VAR3 > VAR1 AND VAR3 > VAR2
+                  DISPLAY  VAR3 " IS GREATER"
+              ELSE
+                  DISPLAY "NO ONE IS GREATER"
+              END-IF
+           ELSE  IF  VAR4 = 'SMALL'
+              IF  VAR1 < VAR2 AND VAR1 < VAR3
+                  DISPLAY  VAR1 " IS SMALLEST"
+              ELSE IF  VAR2 < VAR1 AND VAR2 < VAR3
+                  DISPLAY  VAR2 " IS SMALLEST"
+              ELSE IF  VAR3 < VAR1 AND VAR3 < VAR2
+                  DISPLAY  VAR3 ' IS SMALLEST'
+              ELSE
+                  DISPLAY 'NO ONE IS SMALLEST'
+              END-IF
+           END-IF.
+           STOP RUN.
