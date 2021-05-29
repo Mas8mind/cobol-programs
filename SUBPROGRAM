@@ -1,0 +1,16 @@
+      *SUBPROGRAM FOR MAIN PROGRAM
+       ID DIVISION.
+       PROGRAM-ID. MAINPGM.
+       ENVIRONMENT DIVISION.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       77 VAR1 PIC A(6) .
+       77 A PIC 9(2) VALUE 12.
+       77 B PIC 9(2) VALUE 18.
+       77 C PIC 9(2) VALUE 0.
+       PROCEDURE DIVISION.
+           DISPLAY ' YOU ARE IN MAINPGM '.
+           MOVE 'SUBPGM' TO VAR1.
+           CALL VAR1 USING A , B , CONTENT C.
+           DISPLAY A , B , C.
+           STOP RUN.
